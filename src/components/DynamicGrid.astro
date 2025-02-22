@@ -1,0 +1,145 @@
+---
+import { Image } from "astro:assets";
+import Card from "./Card.astro";
+import Grid from "./Grid.astro";
+---
+
+<Grid className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1fr_2fr] dark:bg-black bg-white gap-4 p-4">
+  {/* Left Side */}
+  <div class="grid gap-4 grid-rows-3 grid-cols-1">
+    <div class="rounded-lg grid md:grid-cols-3 grid-cols-1 md:grid-rows-2 grid-rows-auto gap-4">
+      <Card>
+        <p>Up to</p>
+        <h3 class="text-4xl text-[#4098bf] font-bold">16Gb</h3>
+        <p>Memory</p>
+      </Card>
+      <Card className="md:col-span-2 rounded-lg flex flex-col items-center pr-0">
+        <div class="w-full h-[60px]">
+          <Image src="/usb4.png" alt="thunderbolt" class="rounded-lg object-cover w-full h-auto" width={80} height={80} />
+        </div>
+        <p>Thunderbolt/USB4</p>
+      </Card>
+      <Card>
+        <p>Up to</p>
+        <h3 class="text-4xl text-[#4098bf] font-bold">2TB</h3>
+        <p>Storage</p>
+      </Card>
+      <Card>
+        <Image src="/touchId.png" alt="touch id" class="rounded-lg" width={80} height={80} />
+        <p>Touch ID</p>
+      </Card>
+      <Card>
+        <Image src="/wifi.png" alt="wifi id" class="rounded-lg" width={80} height={80} />
+        <p>Wifi 6</p>
+      </Card>
+    </div>
+    <div class="rounded-lg bg-green-400">
+      <Image src="/big-sur.png" alt="macbook" class="rounded-lg w-full h-full object-cover" width={300} height={300} />
+    </div>
+    <div class="grid md:grid-cols-2 grid-cols-1 grid-rows-2 gap-4">
+      <Card>
+        <h2 class="text-4xl font-bold bg-gradient-to-r from-[#7f418a] to-[#e72752] bg-clip-text text-transparent text-center">
+          P3 wide color
+        </h2>
+      </Card>
+      <Card>
+        <h2 class="text-4xl font-bold bg-gradient-to-r from-[#7f418a] to-[#e72752] bg-clip-text text-transparent text-center">
+          1333''
+        </h2>
+        <p>Retina Display</p>
+      </Card>
+      <div class="md:col-span-[1.5]">
+        <Card className="text-center">
+          <p>Up to</p>
+          <h2 class="text-6xl font-bold bg-gradient-to-r from-[#7f418a] to-[#e72752] bg-clip-text text-transparent text-center">
+            9x 
+          </h2>
+          <p>Faster machine learning</p>
+        </Card>
+      </div>
+      <Card className="text-center">
+        <p>Up to</p>
+        <h2 class="text-6xl font-bold bg-gradient-to-r from-[#417b8a] to-[#e72752] bg-clip-text text-transparent text-center">
+          2x 
+        </h2>
+        <p>Faster SSD</p>
+      </Card>
+    </div>
+  </div>
+
+  {/* Right Side */}
+  <div class="grid gap-4 grid-rows-[1fr_4fr] grid-cols-1">
+    <div class="rounded-lg grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-2">
+      <Card>
+        <Image src="/18hrsUp.png" alt="thunderbolt" class="rounded-lg" width={100} height={100} />
+        <p>Advanced Camera ISP</p>
+      </Card>
+      <Card>
+        <p>Up to</p>
+        <Image src="/18hrsUp.png" alt="thunderbolt" class="rounded-lg w-full h-auto" width={150} height={100} />
+        <p>battery life</p>
+      </Card>
+      <Card>
+        <p>Up to</p>
+        <div class="h-[100px] w-full max-w-[150px]">
+          <Image src="/tablet.png" alt="tablet" class="rounded-lg object-cover w-full h-full" width={150} height={80} />
+        </div>
+        <p>battery life</p>
+      </Card>
+      <Card className="text-center">
+        <p>Up to</p>
+        <h2 class="text-6xl font-bold bg-gradient-to-r from-[#417b8a] to-[#e72752] bg-clip-text text-transparent text-center">
+          3.5x 
+        </h2>
+        <p>Faster CPU</p>
+      </Card>
+    </div>
+  
+    <!-- Responsive Two-Column Section -->
+    <div class="grid md:grid-cols-2 sm:grid-cols-1 grid-cols-1 gap-5 rounded-lg">
+      <!-- Left Section -->
+      <div class="rounded-2xl grid grid-rows-[2fr_1fr] gap-5">
+        <Card className="rounded-lg w-full h-full flex items-center justify-center">
+          <Image src="/macbook.png" alt="MacBook" class="rounded-lg w-full h-auto" width={600} height={600} />
+        </Card>
+        <div class="grid sm:grid-cols-2 grid-cols-1 gap-4">
+          <Card>
+            <div class="h-[240px] w-full">
+              <Image src="/keyboard.png" alt="keyboard" class="rounded-lg object-cover w-full h-full" width={240} height={240} />
+            </div>
+            <p>Magic Keyboard</p>
+          </Card>
+          <Card>
+            <h2 class="text-4xl font-bold bg-gradient-to-r from-[#7f418a] to-[#e72752] bg-clip-text text-transparent text-center">
+              Silent design
+            </h2>
+            <p>Apple M1 chip</p>
+          </Card>
+        </div>
+      </div>
+  
+      <!-- Right Section (Now Fully Responsive) -->
+      <div class="rounded-2xl grid sm:grid-cols-1 md:grid-cols-2 grid-cols-1 gap-5">
+        <div class="grid col-span-2 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <Card className="rounded-lg w-full h-full flex flex-col items-center justify-center">
+            <Image src="/padlock.png" alt="touch id" class="rounded-lg w-full h-auto max-w-[80px]" width={80} height={80} />
+            <p>Secure Enclave</p>
+          </Card>
+          <Card className="rounded-lg w-full h-full flex flex-col items-center justify-center md:col-span-2">
+            <p>Up to</p>
+            <h2 class="text-6xl font-bold bg-gradient-to-r from-[#417b8a] to-[#e72752] bg-clip-text text-transparent text-center">
+              5x 
+            </h2>
+            <p>Faster graphics</p>
+          </Card>
+        </div>
+        <Card className="col-span-2">
+          <div class="h-[240px] w-full">
+            <Image src="/m3.png" alt="M3 Chip" class="rounded-lg object-cover w-full h-full" width={240} height={240} />
+          </div>
+        </Card>
+      </div>
+    </div>
+  </div>
+  
+</Grid>

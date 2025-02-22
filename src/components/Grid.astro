@@ -1,0 +1,19 @@
+---
+interface Section {
+  id: string;
+  rows: string;
+  cols: string;
+  className?: string;
+  children?: any;
+}
+
+interface Props {
+  className?: string;
+}
+
+const { className } = Astro.props;
+---
+
+<div class={`grid ${className} gap-5 min-h-[100vh] bg-black w-full px-4`}>
+  <slot />
+</div>
