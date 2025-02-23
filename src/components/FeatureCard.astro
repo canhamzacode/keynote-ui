@@ -1,0 +1,24 @@
+---
+import { Image } from "astro:assets";
+import Card from "./Card.astro";
+
+const { title, description, imageSrc, imageAlt, imageSize = 100, isGradient = false } = Astro.props;
+---
+
+<Card className="rounded-lg flex flex-col items-center justify-center text-center">
+  {imageSrc && (
+    <Image 
+      src={imageSrc} 
+      alt={imageAlt} 
+      class="rounded-lg w-auto max-w-[100px]" 
+      width={imageSize} 
+      height={imageSize} 
+    />
+  )}
+  {title && (
+    <h2 class={`text-4xl font-bold ${isGradient ? "bg-gradient-to-r from-[#417b8a] to-[#e72752] bg-clip-text text-transparent" : ""}`}>
+      {title}
+    </h2>
+  )}
+  {description && <p>{description}</p>}
+</Card>
