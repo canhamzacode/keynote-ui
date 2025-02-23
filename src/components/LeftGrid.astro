@@ -1,0 +1,66 @@
+---
+import { Image } from "astro:assets";
+import Card from "./Card.astro";
+
+---
+
+<div class="grid gap-4 grid-rows-3 grid-cols-1">
+    <div class="rounded-lg grid md:grid-cols-3 grid-cols-1 md:grid-rows-2 grid-rows-auto gap-4">
+      <Card>
+        <p>Up to</p>
+        <h3 class="text-4xl text-[#4098bf] font-bold">16Gb</h3>
+        <p>Memory</p>
+      </Card>
+      <Card className="md:col-span-2 rounded-lg flex flex-col items-center pr-0">
+        <div class="w-full h-[60px]">
+          <Image src="/usb4.png" alt="thunderbolt" class="rounded-lg object-cover w-full h-auto" width={80} height={80} />
+        </div>
+        <p>Thunderbolt/USB4</p>
+      </Card>
+      <Card>
+        <p>Up to</p>
+        <h3 class="text-4xl text-[#4098bf] font-bold">2TB</h3>
+        <p>Storage</p>
+      </Card>
+      <Card>
+        <Image src="/touchId.png" alt="touch id" class="rounded-lg" width={80} height={80} />
+        <p>Touch ID</p>
+      </Card>
+      <Card>
+        <Image src="/wifi.png" alt="wifi id" class="rounded-lg" width={80} height={80} />
+        <p>Wifi 6</p>
+      </Card>
+    </div>
+    <div class="rounded-lg">
+      <Image src="/big-sur.png" alt="macbook" class="rounded-lg w-full h-full object-cover" width={300} height={300} />
+    </div>
+    <div class="grid md:grid-cols-2 grid-cols-1 grid-rows-2 gap-4">
+      <Card>
+        <h2 class="text-4xl font-bold bg-gradient-to-r from-[#7f418a] to-[#e72752] bg-clip-text text-transparent text-center">
+          P3 wide color
+        </h2>
+      </Card>
+      <Card>
+        <h2 class="text-4xl font-bold bg-gradient-to-r from-[#7f418a] to-[#e72752] bg-clip-text text-transparent text-center">
+          1333''
+        </h2>
+        <p>Retina Display</p>
+      </Card>
+      <div class="md:col-span-[1.5]">
+        <Card className="text-center">
+          <p>Up to</p>
+          <h2 class="text-6xl font-bold bg-gradient-to-r from-[#7f418a] to-[#e72752] bg-clip-text text-transparent text-center">
+            9x 
+          </h2>
+          <p>Faster machine learning</p>
+        </Card>
+      </div>
+      <Card className="text-center">
+        <p>Up to</p>
+        <h2 class="text-6xl font-bold bg-gradient-to-r from-[#417b8a] to-[#e72752] bg-clip-text text-transparent text-center">
+          2x 
+        </h2>
+        <p>Faster SSD</p>
+      </Card>
+    </div>
+</div>

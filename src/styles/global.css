@@ -15,7 +15,12 @@ body {
   }
   
   /* Dark Mode */
-  .dark body {
-    background-color: #121212;
-    color: white;
-  }
+.dark body {
+  background-color: #121212;
+  color: white;
+}
+
+.dark .card {
+  background-color: #1e1e1e;
+  color: white;
+}
