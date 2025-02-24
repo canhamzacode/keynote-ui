@@ -1,0 +1,88 @@
+---
+import { Image } from "astro:assets";
+import Card from "./Card.astro";
+
+type TextOrderType = ("upperText" | "mainText" | "lowerText" | "image")[];
+
+interface CustomCardProps {
+  upperText?: string;
+  mainText?: string;
+  lowerText?: string;
+  mainTextGradient?: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  imageWidth?: number;
+  imageHeight?: number;
+  className?: string;
+  imageClass?: string;
+  textOrder?: TextOrderType | string;
+  upperTextClass?: string;
+  mainTextClass?: string;
+  lowerTextClass?: string;
+  bgImage?: string;
+  bgOverlay?: string;
+}
+
+const {
+  upperText,
+  mainText,
+  lowerText,
+  mainTextGradient = "from-[#417b8a] to-[#e72752]",
+  imageSrc,
+  imageAlt = "Custom Image",
+  imageWidth = 100,
+  imageHeight = 100,
+  className = "",
+  imageClass = "rounded-lg w-full h-auto",
+  textOrder = ["upperText", "mainText", "lowerText"],
+  upperTextClass = "",
+  mainTextClass = "",
+  lowerTextClass = "",
+  bgImage = "",
+  bgOverlay = "bg-black/40",
+} = Astro.props as CustomCardProps;
+
+// Ensure textOrder is always an array
+const safeTextOrder: TextOrderType = Array.isArray(textOrder)
+  ? textOrder
+  : typeof textOrder === "string"
+    ? (textOrder.split(",").map((item) => item.trim()) as TextOrderType)
+    : [];
+---
+
+<Card 
+  className={`relative overflow-hidden p-6 rounded-3xl shadow-md flex items-center gap-3 flex-col justify-center ${className}`}
+  style={bgImage ? `background-image: url(${bgImage}); background-size: cover; background-position: center;` : ""}
+>
+  {bgImage && <div class={`absolute inset-0 ${bgOverlay}`}></div>}
+
+  <div class="relative z-10 flex flex-col items-center gap-3">
+    {safeTextOrder.map((item) => {
+      if (item === "image" && imageSrc) {
+        return (
+          <Image 
+            src={imageSrc} 
+            alt={imageAlt} 
+            width={imageWidth} 
+            height={imageHeight} 
+            class={imageClass} 
+          />
+        );
+      }
+      if (item === "upperText" && upperText) {
+        return <p class={upperTextClass}>{upperText}</p>;
+      }
+      if (item === "mainText" && mainText) {
+        return (
+          <h2 class={`text-4xl font-bold bg-clip-text text-transparent text-center ${mainTextClass} bg-gradient-to-r ${mainTextGradient}`}>
+            {mainText}
+          </h2>
+        );
+      }
+      if (item === "lowerText" && lowerText) {
+        return <p class={lowerTextClass}>{lowerText}</p>;
+      }
+      return null;
+    })}
+  </div>
+</Card>

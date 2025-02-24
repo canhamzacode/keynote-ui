@@ -1,11 +1,12 @@
 ---
 interface Props {
-  className?: string; // Make className optional
+  className?: string;
+  style?: string;
 }
 
-const { className = "" } = Astro.props;
+const { className = "", style = "" } = Astro.props;
 ---
 
-<div class={`bg-[#ededed] card p-4 rounded-3xl shadow-md flex items-center gap-3 flex-col justify-center ${className}`}>
+<div class={`bg-[#ededed] card p-4 rounded-3xl shadow-md flex items-center gap-3 flex-col justify-center ${className}`} style={style}>
   <slot />
 </div>

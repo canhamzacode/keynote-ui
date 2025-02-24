@@ -1,81 +1,94 @@
 ---
 import { Image } from "astro:assets";
-import Card from "./Card.astro";
-
+import Slide from "./Slide.astro";
 ---
 
 <div class="grid gap-4 grid-rows-[1fr_4fr] grid-cols-1">
     <div class="rounded-lg grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-2">
-      <Card>
-        <Image src="/18hrsUp.png" alt="thunderbolt" class="rounded-lg" width={100} height={100} />
-        <p>Advanced Camera ISP</p>
-      </Card>
-      <Card className="flex flex-col items-center text-center">
-        <p>Up to</p>
-        <div class="w-full max-w-[150px] h-[100px] flex items-center justify-center">
-          <Image src="/18hrsUp.png" alt="thunderbolt" class="rounded-lg object-contain w-full h-full" width={150} height={100} />
-        </div>
-        <p>battery life</p>
-      </Card>
-      <Card>
-        <p>Up to</p>
-        <div class="md:h-[100px] h-[60px] md:max-w-[150px] w-[100px]">
-          <Image src="/tablet.png" alt="tablet" class="rounded-lg object-cover w-full h-full" width={150} height={80} />
-        </div>
-        <p>battery life</p>
-      </Card>
-      <Card className="text-center">
-        <p>Up to</p>
-        <h2 class="text-6xl font-bold bg-gradient-to-r from-[#417b8a] to-[#e72752] bg-clip-text text-transparent text-center">
-          3.5x 
-        </h2>
-        <p>Faster CPU</p>
-      </Card>
+      <Slide
+        imageSrc="/18hrsUp.png"
+        imageAlt="Advanced Camera ISP"
+        imageWidth={100}
+        imageHeight={100}
+        lowerText="Advanced Camera ISP"
+      />
+      <Slide
+        upperText="Up to"
+        imageSrc="/18hrsUp.png"
+        imageAlt="Battery Life"
+        imageWidth={150}
+        imageHeight={100}
+        lowerText="Battery Life"
+        className="flex flex-col items-center text-center"
+      />
+      <Slide
+        upperText="Up to"
+        imageSrc="/tablet.png"
+        imageAlt="Tablet"
+        imageWidth={150}
+        imageHeight={80}
+        lowerText="Battery Life"
+      />
+      <Slide 
+        upperText="Up to" 
+        mainText="3.5x" 
+        lowerText="Faster CPU"
+      />
     </div>
   
-    <!-- Responsive Two-Column Section -->
     <div class="grid md:grid-cols-2 sm:grid-cols-1 grid-cols-1 gap-5 rounded-lg">
-      <!-- Left Section -->
       <div class="rounded-2xl grid md:grid-rows-[2fr_1fr] gap-5">
-        <Card className="rounded-lg w-full h-full flex items-center justify-center">
-          <Image src="/macbook.png" alt="MacBook" class="rounded-lg w-full h-auto" width={600} height={600} />
-        </Card>
+        <Slide
+          imageSrc="/macbook.png"
+          imageAlt="MacBook"
+          imageWidth={600}
+          imageHeight={600}
+          className="rounded-lg w-full h-full flex items-center justify-center"
+        />
         <div class="grid sm:grid-cols-2 grid-cols-1 gap-4">
-          <Card>
-            <div class="h-[240px] w-full">
-              <Image src="/keyboard.png" alt="keyboard" class="rounded-lg object-cover w-full h-full" width={240} height={240} />
-            </div>
-            <p>Magic Keyboard</p>
-          </Card>
-          <Card>
-            <h2 class="text-4xl font-bold bg-gradient-to-r from-[#7f418a] to-[#e72752] bg-clip-text text-transparent text-center">
-              Silent design
-            </h2>
-            <p>Apple M1 chip</p>
-          </Card>
+          <Slide 
+            upperText="New" 
+            mainText="Magic Keyboard" 
+            lowerText="Smooth typing experience"
+            imageSrc="/keyboard.png"
+            imageAlt="Keyboard"
+            imageWidth={200}
+            imageHeight={100}
+            className="bg-white shadow-lg p-6"
+          />
+          <Slide 
+            mainText="Silent Design" 
+            lowerText="Apple M1 Chip"
+            mainTextGradient="from-[#7f418a] to-[#e72752]"
+          />
         </div>
       </div>
   
-      <!-- Right Section (Now Fully Responsive) -->
       <div class="rounded-2xl grid sm:grid-cols-1 md:grid-cols-2 md:grid-rows-3 grid-cols-1 gap-5">
         <div class="grid col-span-2 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          <Card className="rounded-lg w-full h-full flex flex-col items-center justify-center">
-            <Image src="/padlock.png" alt="touch id" class="rounded-lg w-full h-auto max-w-[80px]" width={80} height={80} />
-            <p>Secure Enclave</p>
-          </Card>
-          <Card className="rounded-lg w-full h-full flex flex-col items-center justify-center md:col-span-2">
-            <p>Up to</p>
-            <h2 class="text-6xl font-bold bg-gradient-to-r from-[#417b8a] to-[#e72752] bg-clip-text text-transparent text-center">
-              5x 
-            </h2>
-            <p>Faster graphics</p>
-          </Card>
+          <Slide
+            imageSrc="/padlock.png"
+            imageAlt="Secure Enclave"
+            imageWidth={80}
+            imageHeight={80}
+            lowerText="Secure Enclave"
+            className="rounded-lg w-full h-full flex flex-col items-center justify-center"
+          />
+          <Slide 
+            upperText="Boosts Performance" 
+            mainText="5x" 
+            lowerText="Faster Graphics"
+            mainTextGradient="from-[#ff5733] to-[#ffc107]"
+            className="text-center md:col-span-2"
+          />
         </div>
-        <Card className="col-span-2  row-span-0 md:row-span-2">
-          <div class="h-[240px] w-full">
-            <Image src="/m3.png" alt="M3 Chip" class="rounded-lg object-cover w-full h-full" width={240} height={240} />
-          </div>
-        </Card>
+        <Slide 
+          imageSrc="/m3.png" 
+          imageAlt="M3 Chip" 
+          imageWidth={150} 
+          imageHeight={150}
+          lowerText="Apple M3 Chip"
+        />
       </div>
     </div>
 </div>

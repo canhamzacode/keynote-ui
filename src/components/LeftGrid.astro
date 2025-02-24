@@ -1,66 +1,95 @@
 ---
 import { Image } from "astro:assets";
-import Card from "./Card.astro";
-
+import Slide from "./Slide.astro";
 ---
 
 <div class="grid gap-4 md:grid-rows-3 grid-rows-1 grid-cols-1">
-    <div class="rounded-lg grid md:grid-cols-3 grid-cols-1 md:grid-rows-2 grid-rows-auto gap-4">
-      <Card>
-        <p>Up to</p>
-        <h3 class="text-4xl text-[#4098bf] font-bold">16Gb</h3>
-        <p>Memory</p>
-      </Card>
-      <Card className="md:col-span-2 rounded-lg flex flex-col items-center pr-0">
-        <div class="w-full h-[60px]">
-          <Image src="/usb4.png" alt="thunderbolt" class="rounded-lg object-cover w-full h-auto" width={80} height={80} />
-        </div>
-        <p>Thunderbolt/USB4</p>
-      </Card>
-      <Card>
-        <p>Up to</p>
-        <h3 class="text-4xl text-[#4098bf] font-bold">2TB</h3>
-        <p>Storage</p>
-      </Card>
-      <Card>
-        <Image src="/touchId.png" alt="touch id" class="rounded-lg" width={80} height={80} />
-        <p>Touch ID</p>
-      </Card>
-      <Card>
-        <Image src="/wifi.png" alt="wifi id" class="rounded-lg" width={80} height={80} />
-        <p>Wifi 6</p>
-      </Card>
+  <div class="rounded-lg grid md:grid-cols-3 grid-cols-1 md:grid-rows-2 grid-rows-auto gap-4">
+    <Slide 
+      upperText="Up to" 
+      mainText="16GB" 
+      lowerText="Memory" 
+      mainTextGradient="from-[#4098bf] to-[#4098bf]"
+    />
+    
+    <Slide 
+      mainText="Thunderbolt / USB4" 
+      imageSrc="/usb4.png"
+      imageAlt="Thunderbolt"
+      mainTextClass="!text-xl"
+      imageWidth={80}
+      imageHeight={80}
+      textOrder="image, mainText"
+      className="!pr-0"
+    />
+    
+    <Slide 
+      upperText="Up to" 
+      mainText="2TB" 
+      lowerText="Storage" 
+      mainTextGradient="from-[#4098bf] to-[#4098bf]"
+    />
+    
+    <Slide
+      lowerText="Touch ID"
+      imageSrc="/touchId.png"
+      imageAlt="Touch ID"
+      imageWidth={60}
+      imageHeight={60}
+      textOrder="upperText, image, lowerText"
+    />
+    
+    <Slide 
+      lowerText="Wifi 6"
+      imageSrc="/wifi.png"
+      imageAlt="Wifi ID"
+      imageWidth={80}
+      imageHeight={80}
+      textOrder="image, lowerText"
+    />
+  </div>
+
+  <Slide 
+    upperText="Explore the Future" 
+    mainText="AI Revolution" 
+    lowerText="Stay Ahead"
+    bgImage="/ai.jpg"
+    bgOverlay="bg-black/60"
+    textOrder={["mainText", "upperText", "lowerText"]}
+  />
+
+  <div class="grid md:grid-cols-2 grid-cols-1 grid-rows-2 gap-4">
+    <Slide 
+      mainText="P3 wide color"
+      mainTextGradient="from-[#7f418a] to-[#e72752]"
+      textOrder={["mainText"]}
+    />
+    
+    <Slide 
+      mainText="1333''"
+      lowerText="Retina Display"
+      mainTextGradient="from-[#7f418a] to-[#e72752]"
+      textOrder={["mainText", "lowerText"]}
+    />
+    
+    <div class="md:col-span-[1.5]">
+      <Slide 
+        upperText="Up to"
+        mainText="9x"
+        lowerText="Faster machine learning"
+        mainTextGradient="from-[#7f418a] to-[#e72752]"
+        textOrder={["upperText", "mainText", "lowerText"]}
+        className="text-center"
+      />
     </div>
-    <Card className="rounded-lg">
-      <Image src="/big-sur.png" alt="macbook" class="rounded-lg w-full h-full object-cover" width={300} height={300} />
-    </Card>
-    <div class="grid md:grid-cols-2 grid-cols-1 grid-rows-2 gap-4">
-      <Card>
-        <h2 class="text-4xl font-bold bg-gradient-to-r from-[#7f418a] to-[#e72752] bg-clip-text text-transparent text-center">
-          P3 wide color
-        </h2>
-      </Card>
-      <Card>
-        <h2 class="text-4xl font-bold bg-gradient-to-r from-[#7f418a] to-[#e72752] bg-clip-text text-transparent text-center">
-          1333''
-        </h2>
-        <p>Retina Display</p>
-      </Card>
-      <div class="md:col-span-[1.5]">
-        <Card className="text-center">
-          <p>Up to</p>
-          <h2 class="text-6xl font-bold bg-gradient-to-r from-[#7f418a] to-[#e72752] bg-clip-text text-transparent text-center">
-            9x 
-          </h2>
-          <p>Faster machine learning</p>
-        </Card>
-      </div>
-      <Card className="text-center">
-        <p>Up to</p>
-        <h2 class="text-6xl font-bold bg-gradient-to-r from-[#417b8a] to-[#e72752] bg-clip-text text-transparent text-center">
-          2x 
-        </h2>
-        <p>Faster SSD</p>
-      </Card>
-    </div>
+    
+    <Slide 
+      upperText="Up to"
+      mainText="2x"
+      lowerText="Faster SSD"
+      mainTextGradient="from-[#417b8a] to-[#e72752]"
+      textOrder={["upperText", "mainText", "lowerText"]}
+      className="text-center"
+    />
+  </div>
 </div>
